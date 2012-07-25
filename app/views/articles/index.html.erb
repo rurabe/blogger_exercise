@@ -1,5 +1,11 @@
 <h1>All Articles</h1>
-
+<h3>Sort by:</h3>
+<ul>
+	<li><%= link_to "Word count", articles_path(params.merge(:order_by => "word_count"))%></li>
+	<li><%= link_to "Title", articles_path(params.merge(:order_by => "title"))%></li>
+	<li><%= link_to "Publish Date", articles_path(params.merge(:order_by => "published"))%></li>
+</ul>
+<hr>
 <ul>
   <% @articles.each do |article| %>
     <li>

@@ -22,4 +22,19 @@ class Article < ActiveRecord::Base
       tagging.tag_id = tag.id
     end
   end
+
+  def self.ordered_by(param)
+    case param
+    when 'word_count'   then self.order('(LENGTH(body)-(LENGTH(REPLACE(body," ","")))) DESC')
+    when 'title'        then self.order('title')
+    when 'published'    then self.order('created_at DESC')     
+    
+    else                     Article.order()
+    end
+  end
+  
+  def self.pants(limit)
+    puts "hey\n"*10
+    limit(limit)
+  end
 end
