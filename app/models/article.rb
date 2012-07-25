@@ -33,8 +33,11 @@ class Article < ActiveRecord::Base
     end
   end
   
-  def self.pants(limit)
-    puts "hey\n"*10
-    limit(limit)
+  def self.search_for(param)
+    self.find(:all, :conditions => ['title LIKE ?',"%#{param}%"])
+  end
+  
+  def self.but_only(limit)
+    self.limit(limit)
   end
 end

@@ -10,4 +10,6 @@ Blogger::Application.routes.draw do
   match 'login'  => 'author_sessions#new',     :as => :login
   match 'logout' => 'author_sessions#destroy', :as => :logout
   
+  match ':id'    => 'articles#index'
+  
 end
