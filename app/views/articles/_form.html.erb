@@ -5,6 +5,10 @@
   <% end %>
   </ul>
 
+  <div>
+    <%= flash[:validation] if flash[:validation] %>
+  </div>
+
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

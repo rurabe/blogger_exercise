@@ -7,7 +7,8 @@
     = csrf_meta_tags
   %body
     %p.flash
-      = flash[:message]
+      - flash.each do |key,message|
+        = content_tag :p, message, :class => "flash #{key}" unless key == :validation
     #container
       #content
         = yield

@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, :through => :taggings
 
+  validates :title, :presence => true#, :flash => {:validation => "Article can't be blank, fool"}
+
   has_attached_file :image
 
   def tag_list
